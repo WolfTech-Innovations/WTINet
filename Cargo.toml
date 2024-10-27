@@ -1,12 +1,11 @@
 [package]
 name = "wtinetwork"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
-libp2p = { version = "0.45", features = ["tcp", "yamux", "dns", "gossipsub"] }
+libp2p = "0.45" # Importing the entire libp2p library
 serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 warp = "0.3"
 uuid = "1.0"
-
