@@ -1,7 +1,7 @@
 [package]
 name = "wtinetwork"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
 libp2p = "0.45" # Importing the entire libp2p library
