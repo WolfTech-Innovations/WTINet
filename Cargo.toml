@@ -90,11 +90,6 @@ strip = true
 opt-level = 0
 debug = true
 
-[[bench]]
-name = "network_benchmarks"
-harness = false
-required-features = ["criterion"]
-
 [features]
 default = ["metrics"]
 metrics = ["dep:metrics", "dep:metrics-exporter-prometheus"]
