@@ -1,3 +1,4 @@
+// HTTPOWTIN.hpp
 #ifndef HTTPOWTIN_HPP
 #define HTTPOWTIN_HPP
 
@@ -5,13 +6,8 @@
 
 class HTTPOWTIN {
 public:
-    // Encapsulates HTML content for WTINet transmission
-    std::string prepareHtmlData(const std::string &htmlContent);
-    std::string parseReceivedData(const std::string &data);
-
-    // Transport HTML content
-    void sendHtmlContent(const std::string &htmlContent);
-    std::string receiveHtmlContent();
+    // Updated to accept an HTML data parameter
+    std::string receiveHtmlContent(const std::string &htmlData);
 };
 
-#endif
+#endif // HTTPOWTIN_HPP
