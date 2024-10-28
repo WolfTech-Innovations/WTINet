@@ -3,4 +3,11 @@ project(WTINet)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(WTINet main.cpp WTIDLMS.cpp HTTPOWTIN.cpp MLMLS.cpp)
+# Include src directory for header files
+include_directories(src)
+
+# Add all source files from src directory
+file(GLOB SOURCES "src/*.cpp")
+
+# Create executable from sources
+add_executable(WTINet ${SOURCES})
