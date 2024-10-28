@@ -1,29 +1,30 @@
 #include <iostream>
-#include <string>
-#include <QApplication>
-#include "WTINetGui.hpp"
 #include "WTIDLMS.hpp"
 #include "HTTPOWTIN.hpp"
 #include "MLMLS.hpp"
 
-int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
-    WTINetGui gui;
-
-    // Example usage of WTIDLMS, HTTPOWTIN, MLMLS
-    WTIDLMS::registerPeer("User1");
-    std::string address = WTIDLMS::getPeerAddress("User1");
-    std::cout << "Generated address for User1: " << address << std::endl;
-
-    // Display HTML content in the GUI
+int main() {
+    // Initialize protocol classes
+    WTIDLMS wtidlms;
     HTTPOWTIN httpowtin;
+    MLMLS mlmls;
+
+    // Register and display a peer address
+    wtidlms.registerPeer("Node1");
+    std::string address = wtidlms.getPeerAddress("Node1");
+    std::cout << "Generated WTIDLMS address for Node1: " << address << std::endl;
+
+    // Prepare and send HTML data over HTTPOWTIN
     std::string htmlData = httpowtin.prepareHtmlData("<h1>Hello WTINet!</h1>");
-    gui.setHtml(QString::fromStdString(htmlData));
+    httpowtin.sendHtmlContent(htmlData);
 
-    // Set initial status
-    gui.setStatus("Connected");
+    // Receive and display the parsed HTML content
+    httpowtin.receiveHtmlContent(htmlData);
 
-    // Display GUI
-    gui.show();
-    return app.exec();
+    // Request and receive data over MLMLS
+    std::string request = mlmls.requestData("exampleResource");
+    std::cout << "Requesting data for: " << request << std::endl;
+    mlmls.receiveData(request);
+
+    return 0;
 }
