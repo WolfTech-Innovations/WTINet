@@ -6,7 +6,13 @@
 
 class HTTPOWTIN {
 public:
-    // Updated to accept an HTML data parameter
+    // Function to prepare HTML data
+    std::string prepareHtmlData(const std::string &htmlContent);
+
+    // Function to send HTML content over WTINet
+    void sendHtmlContent(const std::string &htmlData);
+
+    // Function to receive HTML content, accepting HTML data as a parameter
     std::string receiveHtmlContent(const std::string &htmlData);
 };
 
