@@ -1,0 +1,7 @@
+// HTTPOWTIN.cpp
+#include "HTTPOWTIN.hpp"
+
+std::string HTTPOWTIN::receiveHtmlContent(const std::string &htmlData) {
+    // Process htmlData as needed...
+    return htmlData; // For now, simply returning the input
+}
